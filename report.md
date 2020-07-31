@@ -198,3 +198,19 @@ As there are parts of the dataset that predominantly blank, it would be difficul
 | Season4Time   | n/a              | 6             | n/a             | n/a          | n/a        | No Change                                                                                  |
 
 // If important information is missing in the latter, provide that information in narrative form.
+
+## Workflow Model
+
+// Identifying the key inputs, outputs of your workflow along with the dependencies
+
+The primary input to the workflow is the raw data (`data/raw/farmersmarkets.csv`). A user can manually cleanse the data step-by-step using OpenRefine, however for the sake of reproducability and provenance we consider the OpenRefine operation history a key input, as it will allow others to derive the same processed data set. Next, we have a Python script to transform addresses (`transform_address.py`) which produces a cleansed and processed data set (`data/processed/farmersmarkets_processed_with_address.csv`) containing valid addresses. Finally, using the relation schema defined by `Farmers_Market_Relational_Schema.sql`, we can load the processed data into a database (`Farmers_Market_DB.db`).
+
+Between each stage of the workflow, the key dependencies are the `.csv` file produced from OpenRefine as well as the derived `.csv` file with valid addresses.
+
+The overall cleansing workflow can be visualized using YesWorkflow:
+
+![Overall Workflow](./workflow-model/yesworkflow/outputs/Overall_Workflow.png)
+
+The OpenRefine operation history can be exported as a `.json` file, and visualized using or2ywtool. This tool generates intermediate YesWorkflow data that graphviz turns into an image:
+
+![OpenRefine Workflow](./workflow-model/or2yw/outputs/OpenRefine_Workflow.png)
