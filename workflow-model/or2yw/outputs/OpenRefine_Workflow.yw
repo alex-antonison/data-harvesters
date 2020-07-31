@@ -1,0 +1,271 @@
+#@begin Linear_OR #@desc Linear OpenRefine Workflow
+#@param newColumnName:Facebook_Link
+#@param newColumnName:Season4StartDate
+#@param newColumnName:Season4EndDate
+#@param col-name:Season4StartDate
+#@param expression:value.toDate()
+#@param newColumnName:zip_valid
+#@param col-name:Season3EndDate
+#@param col-name:Season4Date
+#@param newColumnName:longitude
+#@param newColumnName:Youtube_Link
+#@param col-name:Season2Date
+#@param col-name:Season3StartDate
+#@param col-name:OtherMedia
+#@param col-name:Twitter
+#@param newColumnName:Season2EndDate
+#@param newColumnName:County_valid
+#@param newColumnName:Season3StartDate
+#@param oldColumnName:x
+#@param col-name:Youtube
+#@param newColumnName:latitude
+#@param col-name:County
+#@param col-name:longitude
+#@param col-name:latitude
+#@param newColumnName:Season1EndDate
+#@param col-name:Season1EndDate
+#@param oldColumnName:y
+#@param expression:value.toNumber()
+#@param newColumnName:city_valid
+#@param col-name:city
+#@param newColumnName:Organic_valid
+#@param col-name:Season3Date
+#@param col-name:Season1Date
+#@param col-name:Season4EndDate
+#@param newColumnName:Season1StartDate
+#@param newColumnName:OtherMedia_Link
+#@param col-name:Facebook
+#@param col-name:Season2StartDate
+#@param col-name:Season2EndDate
+#@param col-name:Organic
+#@param col-name:Season1StartDate
+#@param newColumnName:Season2StartDate
+#@param col-name:zip
+#@param col-name:updateTime
+#@param newColumnName:Twitter_Link
+#@param newColumnName:Season3EndDate
+#@in table0
+#@out table29
+#@begin core/column-addition0#@desc Create column Facebook_Link at index 4 based on column Facebook using expression grel:if(value.contains(\"facebook.com\"), value, \"\")
+#@param col-name:Facebook
+#@param newColumnName:"Facebook_Link"
+#@in table0
+#@out table1
+#@end core/column-addition0
+#@begin core/column-addition1#@desc Create column Twitter_Link at index 6 based on column Twitter using expression grel:if(value.contains(\"twitter.com\"), value, \"\")
+#@param col-name:Twitter
+#@param newColumnName:"Twitter_Link"
+#@in table1
+#@out table2
+#@end core/column-addition1
+#@begin core/column-addition2#@desc Create column Youtube_Link at index 8 based on column Youtube using expression grel:if(value.contains(\"youtube.com\"), value, \"\")
+#@param col-name:Youtube
+#@param newColumnName:"Youtube_Link"
+#@in table2
+#@out table3
+#@end core/column-addition2
+#@begin core/column-addition3#@desc Create column OtherMedia_Link at index 10 based on column OtherMedia using expression grel:if(
+          length(
+            value.find(/^(http:\\/\\/www\\.|https:\\/\\/www\\.|http:\\/\\/|https:\\/\\/)?[a-z0-9]+([\\-\\.]{1}[a-z0-9]+)*\\.[a-z]{2,5}(:[0-9]{1,5})?(\\/.*)?$/)) 
+          == 1, 
+          value, \"\")
+#@param col-name:OtherMedia
+#@param newColumnName:"OtherMedia_Link"
+#@in table3
+#@out table4
+#@end core/column-addition3
+#@begin core/column-addition4#@desc Create column city_valid at index 13 based on column city using expression grel:if(
+          length(
+            value.find(/[a-zA-Z ]+/))
+          == 1,
+          trim(value), \"\")
+#@param col-name:city
+#@param newColumnName:"city_valid"
+#@in table4
+#@out table5
+#@end core/column-addition4
+#@begin core/column-addition5#@desc Create column County_valid at index 15 based on column County using expression grel:if(
+          length(
+            value.find(/[a-zA-Z ]+/))
+          == 1,
+          trim(value), \"\")
+#@param col-name:County
+#@param newColumnName:"County_valid"
+#@in table5
+#@out table6
+#@end core/column-addition5
+#@begin core/column-addition6#@desc Create column zip_valid at index 18 based on column zip using expression grel:if(
+            length(
+              value.find(/(\\b\\d{5}(?:-\\d{4})?\\b)/))
+            == 1,
+            trim(value), \"\")
+#@param col-name:zip
+#@param newColumnName:"zip_valid"
+#@in table6
+#@out table7
+#@end core/column-addition6
+#@begin core/column-addition7#@desc Create column Season1EndDate at index 20 based on column Season1Date using expression grel:if(
+            length(
+              value.find(/[0,1]?\\d{1}\\/(([0-2]?\\d{1})|([3][0,1]{1}))\\/(([1]{1}[9]{1}[9]{1}\\d{1})|([2-9]{1}\\d{3}))/))
+            == 2,
+            value.find(/[0,1]?\\d{1}\\/(([0-2]?\\d{1})|([3][0,1]{1}))\\/(([1]{1}[9]{1}[9]{1}\\d{1})|([2-9]{1}\\d{3}))/).get(1), \"\")
+#@param col-name:Season1Date
+#@param newColumnName:"Season1EndDate"
+#@in table7
+#@out table8
+#@end core/column-addition7
+#@begin core/column-addition8#@desc Create column Season1StartDate at index 20 based on column Season1Date using expression grel:if(
+            length(
+              value.find(/[0,1]?\\d{1}\\/(([0-2]?\\d{1})|([3][0,1]{1}))\\/(([1]{1}[9]{1}[9]{1}\\d{1})|([2-9]{1}\\d{3}))/))
+            == 2,
+            value.find(/[0,1]?\\d{1}\\/(([0-2]?\\d{1})|([3][0,1]{1}))\\/(([1]{1}[9]{1}[9]{1}\\d{1})|([2-9]{1}\\d{3}))/).get(0), \"\")
+#@param col-name:Season1Date
+#@param newColumnName:"Season1StartDate"
+#@in table8
+#@out table9
+#@end core/column-addition8
+#@begin core/column-addition9#@desc Create column Season2EndDate at index 24 based on column Season2Date using expression grel:if(
+            length(
+              value.find(/[0,1]?\\d{1}\\/(([0-2]?\\d{1})|([3][0,1]{1}))\\/(([1]{1}[9]{1}[9]{1}\\d{1})|([2-9]{1}\\d{3}))/))
+            == 2,
+            value.find(/[0,1]?\\d{1}\\/(([0-2]?\\d{1})|([3][0,1]{1}))\\/(([1]{1}[9]{1}[9]{1}\\d{1})|([2-9]{1}\\d{3}))/).get(1), \"\")
+#@param col-name:Season2Date
+#@param newColumnName:"Season2EndDate"
+#@in table9
+#@out table10
+#@end core/column-addition9
+#@begin core/column-addition10#@desc Create column Season2StartDate at index 24 based on column Season2Date using expression grel:if(
+            length(
+              value.find(/[0,1]?\\d{1}\\/(([0-2]?\\d{1})|([3][0,1]{1}))\\/(([1]{1}[9]{1}[9]{1}\\d{1})|([2-9]{1}\\d{3}))/))
+            == 2,
+            value.find(/[0,1]?\\d{1}\\/(([0-2]?\\d{1})|([3][0,1]{1}))\\/(([1]{1}[9]{1}[9]{1}\\d{1})|([2-9]{1}\\d{3}))/).get(0), \"\")
+#@param col-name:Season2Date
+#@param newColumnName:"Season2StartDate"
+#@in table10
+#@out table11
+#@end core/column-addition10
+#@begin core/column-addition11#@desc Create column Season3EndDate at index 28 based on column Season3Date using expression grel:if(
+            length(
+              value.find(/[0,1]?\\d{1}\\/(([0-2]?\\d{1})|([3][0,1]{1}))\\/(([1]{1}[9]{1}[9]{1}\\d{1})|([2-9]{1}\\d{3}))/))
+            == 2,
+            value.find(/[0,1]?\\d{1}\\/(([0-2]?\\d{1})|([3][0,1]{1}))\\/(([1]{1}[9]{1}[9]{1}\\d{1})|([2-9]{1}\\d{3}))/).get(1), \"\")
+#@param col-name:Season3Date
+#@param newColumnName:"Season3EndDate"
+#@in table11
+#@out table12
+#@end core/column-addition11
+#@begin core/column-addition12#@desc Create column Season3StartDate at index 28 based on column Season3Date using expression grel:if(
+            length(
+              value.find(/[0,1]?\\d{1}\\/(([0-2]?\\d{1})|([3][0,1]{1}))\\/(([1]{1}[9]{1}[9]{1}\\d{1})|([2-9]{1}\\d{3}))/))
+            == 2,
+            value.find(/[0,1]?\\d{1}\\/(([0-2]?\\d{1})|([3][0,1]{1}))\\/(([1]{1}[9]{1}[9]{1}\\d{1})|([2-9]{1}\\d{3}))/).get(0), \"\")
+#@param col-name:Season3Date
+#@param newColumnName:"Season3StartDate"
+#@in table12
+#@out table13
+#@end core/column-addition12
+#@begin core/column-addition13#@desc Create column Season4EndDate at index 32 based on column Season4Date using expression grel:if(
+            length(
+              value.find(/[0,1]?\\d{1}\\/(([0-2]?\\d{1})|([3][0,1]{1}))\\/(([1]{1}[9]{1}[9]{1}\\d{1})|([2-9]{1}\\d{3}))/))
+            == 2,
+            value.find(/[0,1]?\\d{1}\\/(([0-2]?\\d{1})|([3][0,1]{1}))\\/(([1]{1}[9]{1}[9]{1}\\d{1})|([2-9]{1}\\d{3}))/).get(1), \"\")
+#@param col-name:Season4Date
+#@param newColumnName:"Season4EndDate"
+#@in table13
+#@out table14
+#@end core/column-addition13
+#@begin core/column-addition14#@desc Create column Season4StartDate at index 32 based on column Season4Date using expression grel:if(
+            length(
+              value.find(/[0,1]?\\d{1}\\/(([0-2]?\\d{1})|([3][0,1]{1}))\\/(([1]{1}[9]{1}[9]{1}\\d{1})|([2-9]{1}\\d{3}))/))
+            == 2,
+            value.find(/[0,1]?\\d{1}\\/(([0-2]?\\d{1})|([3][0,1]{1}))\\/(([1]{1}[9]{1}[9]{1}\\d{1})|([2-9]{1}\\d{3}))/).get(0), \"\")
+#@param col-name:Season4Date
+#@param newColumnName:"Season4StartDate"
+#@in table14
+#@out table15
+#@end core/column-addition14
+#@begin core/text-transform0#@desc Text transform on cells in column Season1StartDate using expression value.toDate()
+#@param col-name:Season1StartDate
+#@param expression:value.toDate()
+#@in table15
+#@out table16
+#@end core/text-transform0
+#@begin core/text-transform1#@desc Text transform on cells in column Season1EndDate using expression value.toDate()
+#@param col-name:Season1EndDate
+#@param expression:value.toDate()
+#@in table16
+#@out table17
+#@end core/text-transform1
+#@begin core/text-transform2#@desc Text transform on cells in column Season2StartDate using expression value.toDate()
+#@param col-name:Season2StartDate
+#@param expression:value.toDate()
+#@in table17
+#@out table18
+#@end core/text-transform2
+#@begin core/text-transform3#@desc Text transform on cells in column Season2EndDate using expression value.toDate()
+#@param col-name:Season2EndDate
+#@param expression:value.toDate()
+#@in table18
+#@out table19
+#@end core/text-transform3
+#@begin core/text-transform4#@desc Text transform on cells in column Season3StartDate using expression value.toDate()
+#@param col-name:Season3StartDate
+#@param expression:value.toDate()
+#@in table19
+#@out table20
+#@end core/text-transform4
+#@begin core/text-transform5#@desc Text transform on cells in column Season3EndDate using expression value.toDate()
+#@param col-name:Season3EndDate
+#@param expression:value.toDate()
+#@in table20
+#@out table21
+#@end core/text-transform5
+#@begin core/text-transform6#@desc Text transform on cells in column Season4StartDate using expression value.toDate()
+#@param col-name:Season4StartDate
+#@param expression:value.toDate()
+#@in table21
+#@out table22
+#@end core/text-transform6
+#@begin core/text-transform7#@desc Text transform on cells in column Season4EndDate using expression value.toDate()
+#@param col-name:Season4EndDate
+#@param expression:value.toDate()
+#@in table22
+#@out table23
+#@end core/text-transform7
+#@begin core/column-rename0#@desc Rename column x to longitude
+#@param oldColumnName:x
+#@param newColumnName:longitude
+#@in table23
+#@out table24
+#@end core/column-rename0
+#@begin core/column-rename1#@desc Rename column y to latitude
+#@param oldColumnName:y
+#@param newColumnName:latitude
+#@in table24
+#@out table25
+#@end core/column-rename1
+#@begin core/text-transform8#@desc Text transform on cells in column longitude using expression value.toNumber()
+#@param col-name:longitude
+#@param expression:value.toNumber()
+#@in table25
+#@out table26
+#@end core/text-transform8
+#@begin core/text-transform9#@desc Text transform on cells in column latitude using expression value.toNumber()
+#@param col-name:latitude
+#@param expression:value.toNumber()
+#@in table26
+#@out table27
+#@end core/text-transform9
+#@begin core/column-addition15#@desc Create column Organic_valid at index 44 based on column Organic using expression grel:value.replace(\"-\",\"\")
+#@param col-name:Organic
+#@param newColumnName:"Organic_valid"
+#@in table27
+#@out table28
+#@end core/column-addition15
+#@begin core/text-transform10#@desc Text transform on cells in column updateTime using expression value.toDate()
+#@param col-name:updateTime
+#@param expression:value.toDate()
+#@in table28
+#@out table29
+#@end core/text-transform10
+#@end Linear_OR
