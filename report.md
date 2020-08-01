@@ -77,11 +77,11 @@ As there are parts of the dataset that predominantly blank, it would be difficul
   * No work needs to be done regarding the `FMID` as each record is unique.
   * No work needs to be done regarding `MarketName` since even though there are instances where a farmers market has a duplicate name, the additional information provided in a record provides enough context to identify the correct farmers market.
 * Online Information
-  * For Youtube, I am creating the column `Facebook_Link` for valid Youtube links using the following GREL:
+  * For Facebook, I am creating the column `Facebook_Link` for valid Youtube links using the following GREL:
 
         if(value.contains("facebook.com"), value, null)
 
-  * For Youtube, I am creating the column `Twitter_Link` for valid Youtube links using the following GREL:
+  * For Twitter, I am creating the column `Twitter_Link` for valid Youtube links using the following GREL:
 
         if(value.contains("twitter.com"), value, null)
 
