@@ -2,6 +2,6 @@
 
 rm data_harvesters_project.zip
 
-cd ../
 
-zip -r data-harvesters/data_harvesters_project.zip data-harvesters/
+
+zip -r data_harvesters_project.zip .
