@@ -16,7 +16,7 @@
 
 ### Workflow
 
-* You can see the overall workflow at [Overall_Workflow.py](Overall_Workflow.py) and Overall_Workflow.gv](Overall_Workflow.gv). 
+* You can see the overall workflow at [Overall_Workflow.py](Overall_Workflow.py) and [Overall_Workflow.gv](Overall_Workflow.gv).
 * You can see the Open Refine worklow files at [OpenRefine_Workflow.yw](OpenRefine_Workflow.yw) and [OpenRefine_Workflow.gv](OpenRefine_Workflow.gv).
 
 ### Data
