@@ -1,0 +1,239 @@
+
+/* Start of top-level graph */
+digraph Workflow {
+rankdir=TB
+
+/* Title for graph */
+fontname=Helvetica; fontsize=18; labelloc=t
+label=Linear_OR
+
+/* Start of double cluster for drawing box around nodes in workflow */
+subgraph cluster_workflow_box_outer { label=""; color=black; penwidth=2
+subgraph cluster_workflow_box_inner { label=""; penwidth=0
+
+/* Style for nodes representing atomic programs in workflow */
+node[shape=box style=filled fillcolor="#CCFFCC" peripheries=1 fontname=Helvetica]
+
+/* Nodes representing atomic programs in workflow */
+"core/column-addition0#" [shape=record rankdir=LR label="{<f0> core/column-addition0# |<f1> Create column Facebook_Link at index 4 based on column Facebook using expression grel\:if(value.contains(\"facebook.com\"), value, \"\")}"];
+"core/column-addition1#" [shape=record rankdir=LR label="{<f0> core/column-addition1# |<f1> Create column Twitter_Link at index 6 based on column Twitter using expression grel\:if(value.contains(\"twitter.com\"), value, \"\")}"];
+"core/column-addition2#" [shape=record rankdir=LR label="{<f0> core/column-addition2# |<f1> Create column Youtube_Link at index 8 based on column Youtube using expression grel\:if(value.contains(\"youtube.com\"), value, \"\")}"];
+"core/column-addition3#" [shape=record rankdir=LR label="{<f0> core/column-addition3# |<f1> Create column OtherMedia_Link at index 10 based on column OtherMedia using expression grel\:if(}"];
+"core/column-addition4#" [shape=record rankdir=LR label="{<f0> core/column-addition4# |<f1> Create column city_valid at index 13 based on column city using expression grel\:if(}"];
+"core/column-addition5#" [shape=record rankdir=LR label="{<f0> core/column-addition5# |<f1> Create column County_valid at index 15 based on column County using expression grel\:if(}"];
+"core/column-addition6#" [shape=record rankdir=LR label="{<f0> core/column-addition6# |<f1> Create column zip_valid at index 18 based on column zip using expression grel\:if(}"];
+"core/column-addition7#" [shape=record rankdir=LR label="{<f0> core/column-addition7# |<f1> Create column Season1EndDate at index 20 based on column Season1Date using expression grel\:if(}"];
+"core/column-addition8#" [shape=record rankdir=LR label="{<f0> core/column-addition8# |<f1> Create column Season1StartDate at index 20 based on column Season1Date using expression grel\:if(}"];
+"core/column-addition9#" [shape=record rankdir=LR label="{<f0> core/column-addition9# |<f1> Create column Season2EndDate at index 24 based on column Season2Date using expression grel\:if(}"];
+"core/column-addition10#" [shape=record rankdir=LR label="{<f0> core/column-addition10# |<f1> Create column Season2StartDate at index 24 based on column Season2Date using expression grel\:if(}"];
+"core/column-addition11#" [shape=record rankdir=LR label="{<f0> core/column-addition11# |<f1> Create column Season3EndDate at index 28 based on column Season3Date using expression grel\:if(}"];
+"core/column-addition12#" [shape=record rankdir=LR label="{<f0> core/column-addition12# |<f1> Create column Season3StartDate at index 28 based on column Season3Date using expression grel\:if(}"];
+"core/column-addition13#" [shape=record rankdir=LR label="{<f0> core/column-addition13# |<f1> Create column Season4EndDate at index 32 based on column Season4Date using expression grel\:if(}"];
+"core/column-addition14#" [shape=record rankdir=LR label="{<f0> core/column-addition14# |<f1> Create column Season4StartDate at index 32 based on column Season4Date using expression grel\:if(}"];
+"core/text-transform0#" [shape=record rankdir=LR label="{<f0> core/text-transform0# |<f1> Text transform on cells in column Season1StartDate using expression value.toDate()}"];
+"core/text-transform1#" [shape=record rankdir=LR label="{<f0> core/text-transform1# |<f1> Text transform on cells in column Season1EndDate using expression value.toDate()}"];
+"core/text-transform2#" [shape=record rankdir=LR label="{<f0> core/text-transform2# |<f1> Text transform on cells in column Season2StartDate using expression value.toDate()}"];
+"core/text-transform3#" [shape=record rankdir=LR label="{<f0> core/text-transform3# |<f1> Text transform on cells in column Season2EndDate using expression value.toDate()}"];
+"core/text-transform4#" [shape=record rankdir=LR label="{<f0> core/text-transform4# |<f1> Text transform on cells in column Season3StartDate using expression value.toDate()}"];
+"core/text-transform5#" [shape=record rankdir=LR label="{<f0> core/text-transform5# |<f1> Text transform on cells in column Season3EndDate using expression value.toDate()}"];
+"core/text-transform6#" [shape=record rankdir=LR label="{<f0> core/text-transform6# |<f1> Text transform on cells in column Season4StartDate using expression value.toDate()}"];
+"core/text-transform7#" [shape=record rankdir=LR label="{<f0> core/text-transform7# |<f1> Text transform on cells in column Season4EndDate using expression value.toDate()}"];
+"core/column-rename0#" [shape=record rankdir=LR label="{<f0> core/column-rename0# |<f1> Rename column x to longitude}"];
+"core/column-rename1#" [shape=record rankdir=LR label="{<f0> core/column-rename1# |<f1> Rename column y to latitude}"];
+"core/text-transform8#" [shape=record rankdir=LR label="{<f0> core/text-transform8# |<f1> Text transform on cells in column longitude using expression value.toNumber()}"];
+"core/text-transform9#" [shape=record rankdir=LR label="{<f0> core/text-transform9# |<f1> Text transform on cells in column latitude using expression value.toNumber()}"];
+"core/column-addition15#" [shape=record rankdir=LR label="{<f0> core/column-addition15# |<f1> Create column Organic_valid at index 44 based on column Organic using expression grel\:value.replace(\"-\",\"\")}"];
+"core/text-transform10#" [shape=record rankdir=LR label="{<f0> core/text-transform10# |<f1> Text transform on cells in column updateTime using expression value.toDate()}"];
+
+/* Style for nodes representing non-parameter data channels in workflow */
+node[shape=box style="rounded,filled" fillcolor="#FFFFCC" peripheries=1 fontname=Helvetica]
+
+/* Nodes for non-parameter data channels in workflow */
+table29
+table0
+table1
+table2
+table3
+table4
+table5
+table6
+table7
+table8
+table9
+table10
+table11
+table12
+table13
+table14
+table15
+table16
+table17
+table18
+table19
+table20
+table21
+table22
+table23
+table24
+table25
+table26
+table27
+table28
+
+/* Style for nodes representing parameter channels in workflow */
+node[shape=box style="rounded,filled" fillcolor="#FCFCFC" peripheries=1 fontname=Helvetica]
+
+/* Nodes representing parameter channels in workflow */
+"col-name:Facebook"
+"col-name:Twitter"
+"col-name:Youtube"
+"col-name:OtherMedia"
+"col-name:city"
+"col-name:County"
+"col-name:zip"
+"col-name:Season1Date"
+"col-name:Season2Date"
+"col-name:Season3Date"
+"col-name:Season4Date"
+"col-name:Season1StartDate"
+"expression:value.toDate()"
+"col-name:Season1EndDate"
+"col-name:Season2StartDate"
+"col-name:Season2EndDate"
+"col-name:Season3StartDate"
+"col-name:Season3EndDate"
+"col-name:Season4StartDate"
+"col-name:Season4EndDate"
+"oldColumnName:x"
+"newColumnName:longitude"
+"oldColumnName:y"
+"newColumnName:latitude"
+"col-name:longitude"
+"expression:value.toNumber()"
+"col-name:latitude"
+"col-name:Organic"
+"col-name:updateTime"
+
+/* Edges representing connections between programs and channels */
+"core/column-addition0#" -> table1
+"col-name:Facebook" -> "core/column-addition0#"
+"newColumnName:\"Facebook_Link\"" -> "core/column-addition0#"
+table0 -> "core/column-addition0#"
+"core/column-addition1#" -> table2
+"col-name:Twitter" -> "core/column-addition1#"
+"newColumnName:\"Twitter_Link\"" -> "core/column-addition1#"
+table1 -> "core/column-addition1#"
+"core/column-addition2#" -> table3
+"col-name:Youtube" -> "core/column-addition2#"
+"newColumnName:\"Youtube_Link\"" -> "core/column-addition2#"
+table2 -> "core/column-addition2#"
+"core/column-addition3#" -> table4
+"col-name:OtherMedia" -> "core/column-addition3#"
+"newColumnName:\"OtherMedia_Link\"" -> "core/column-addition3#"
+table3 -> "core/column-addition3#"
+"core/column-addition4#" -> table5
+"col-name:city" -> "core/column-addition4#"
+"newColumnName:\"city_valid\"" -> "core/column-addition4#"
+table4 -> "core/column-addition4#"
+"core/column-addition5#" -> table6
+"col-name:County" -> "core/column-addition5#"
+"newColumnName:\"County_valid\"" -> "core/column-addition5#"
+table5 -> "core/column-addition5#"
+"core/column-addition6#" -> table7
+"col-name:zip" -> "core/column-addition6#"
+"newColumnName:\"zip_valid\"" -> "core/column-addition6#"
+table6 -> "core/column-addition6#"
+"core/column-addition7#" -> table8
+"col-name:Season1Date" -> "core/column-addition7#"
+"newColumnName:\"Season1EndDate\"" -> "core/column-addition7#"
+table7 -> "core/column-addition7#"
+"core/column-addition8#" -> table9
+"col-name:Season1Date" -> "core/column-addition8#"
+"newColumnName:\"Season1StartDate\"" -> "core/column-addition8#"
+table8 -> "core/column-addition8#"
+"core/column-addition9#" -> table10
+"col-name:Season2Date" -> "core/column-addition9#"
+"newColumnName:\"Season2EndDate\"" -> "core/column-addition9#"
+table9 -> "core/column-addition9#"
+"core/column-addition10#" -> table11
+"col-name:Season2Date" -> "core/column-addition10#"
+"newColumnName:\"Season2StartDate\"" -> "core/column-addition10#"
+table10 -> "core/column-addition10#"
+"core/column-addition11#" -> table12
+"col-name:Season3Date" -> "core/column-addition11#"
+"newColumnName:\"Season3EndDate\"" -> "core/column-addition11#"
+table11 -> "core/column-addition11#"
+"core/column-addition12#" -> table13
+"col-name:Season3Date" -> "core/column-addition12#"
+"newColumnName:\"Season3StartDate\"" -> "core/column-addition12#"
+table12 -> "core/column-addition12#"
+"core/column-addition13#" -> table14
+"col-name:Season4Date" -> "core/column-addition13#"
+"newColumnName:\"Season4EndDate\"" -> "core/column-addition13#"
+table13 -> "core/column-addition13#"
+"core/column-addition14#" -> table15
+"col-name:Season4Date" -> "core/column-addition14#"
+"newColumnName:\"Season4StartDate\"" -> "core/column-addition14#"
+table14 -> "core/column-addition14#"
+"core/text-transform0#" -> table16
+"col-name:Season1StartDate" -> "core/text-transform0#"
+"expression:value.toDate()" -> "core/text-transform0#"
+table15 -> "core/text-transform0#"
+"core/text-transform1#" -> table17
+"col-name:Season1EndDate" -> "core/text-transform1#"
+"expression:value.toDate()" -> "core/text-transform1#"
+table16 -> "core/text-transform1#"
+"core/text-transform2#" -> table18
+"col-name:Season2StartDate" -> "core/text-transform2#"
+"expression:value.toDate()" -> "core/text-transform2#"
+table17 -> "core/text-transform2#"
+"core/text-transform3#" -> table19
+"col-name:Season2EndDate" -> "core/text-transform3#"
+"expression:value.toDate()" -> "core/text-transform3#"
+table18 -> "core/text-transform3#"
+"core/text-transform4#" -> table20
+"col-name:Season3StartDate" -> "core/text-transform4#"
+"expression:value.toDate()" -> "core/text-transform4#"
+table19 -> "core/text-transform4#"
+"core/text-transform5#" -> table21
+"col-name:Season3EndDate" -> "core/text-transform5#"
+"expression:value.toDate()" -> "core/text-transform5#"
+table20 -> "core/text-transform5#"
+"core/text-transform6#" -> table22
+"col-name:Season4StartDate" -> "core/text-transform6#"
+"expression:value.toDate()" -> "core/text-transform6#"
+table21 -> "core/text-transform6#"
+"core/text-transform7#" -> table23
+"col-name:Season4EndDate" -> "core/text-transform7#"
+"expression:value.toDate()" -> "core/text-transform7#"
+table22 -> "core/text-transform7#"
+"core/column-rename0#" -> table24
+"oldColumnName:x" -> "core/column-rename0#"
+"newColumnName:longitude" -> "core/column-rename0#"
+table23 -> "core/column-rename0#"
+"core/column-rename1#" -> table25
+"oldColumnName:y" -> "core/column-rename1#"
+"newColumnName:latitude" -> "core/column-rename1#"
+table24 -> "core/column-rename1#"
+"core/text-transform8#" -> table26
+"col-name:longitude" -> "core/text-transform8#"
+"expression:value.toNumber()" -> "core/text-transform8#"
+table25 -> "core/text-transform8#"
+"core/text-transform9#" -> table27
+"col-name:latitude" -> "core/text-transform9#"
+"expression:value.toNumber()" -> "core/text-transform9#"
+table26 -> "core/text-transform9#"
+"core/column-addition15#" -> table28
+"col-name:Organic" -> "core/column-addition15#"
+"newColumnName:\"Organic_valid\"" -> "core/column-addition15#"
+table27 -> "core/column-addition15#"
+"core/text-transform10#" -> table29
+"col-name:updateTime" -> "core/text-transform10#"
+"expression:value.toDate()" -> "core/text-transform10#"
+table28 -> "core/text-transform10#"
+
+/* End of double cluster for drawing box around nodes in workflow */
+}}
+
+/* End of top-level graph */
+}
