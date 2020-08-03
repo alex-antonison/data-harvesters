@@ -3,7 +3,7 @@
 rm data_harvesters_project.zip
 
 zip data_harvesters_project.zip \
-    farmersmarkets_* \
+    Data_Link.txt \
     Queries.txt \
     Open* \
     Overall_Workflow.* \
